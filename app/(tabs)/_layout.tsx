@@ -6,6 +6,9 @@ import { Pressable } from 'react-native';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import MedKitSvg from '@/assets/images/svg/tab/MedKitSvg';
+import AddCircleSvg from '@/assets/images/svg/tab/AddCircleSvg';
+import CalendarSvg from '@/assets/images/svg/tab/CalendarSvg';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -21,37 +24,58 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
+        // tabBarShowLabel: false, 
+        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].pink,
+        tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].mainBlue, 
         headerShown: useClientOnlyValue(false, true),
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          backgroundColor: Colors[colorScheme ?? 'light'].semiWhite,
+          borderTopWidth: 1,
+          borderTopColor: '#ddd',
+          height: 60,
+        },
+        tabBarIconStyle: {
+          marginTop: 10, // Zapobiega przesunięciu ikon
+        },
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
-        }}
+          headerShown: false,
+          tabBarIcon: ({ color }) => <MedKitSvg color={color} />,  
+          // tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          // headerRight: () => (
+          //   <Link href="/modal" asChild>
+          //     <Pressable>
+          //       {({ pressed }) => (
+          //         <FontAwesome
+          //           name="info-circle"
+          //           size={25}
+          //           color={Colors[colorScheme ?? 'light'].text}
+          //           style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+          //         />
+          //       )}
+          //     </Pressable>
+          //   </Link>
+          // ),
+        }} 
       />
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Tab Two', 
+          headerShown: false,
+          tabBarIcon: ({ color }) => <AddCircleSvg color={color} />,
+        }}
+      />
+       <Tabs.Screen
+        name="CalendarScreen"  
+        options={{
+          title: 'Tab Two', 
+          headerShown: false,
+          tabBarIcon: ({ color }) => <CalendarSvg color={color} />,
         }}
       />
     </Tabs>

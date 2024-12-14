@@ -8,6 +8,10 @@ export default {
     tint: tintColorLight,
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorLight,
+    pink: '#E284B6',
+    mainBlue: '#77C4EE',
+    backgroundBlue: '#E4F1FA',
+    semiWhite: '#FDFDFD',
   },
   dark: {
     text: '#fff',
@@ -15,5 +19,9 @@ export default {
     tint: tintColorDark,
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorDark,
+    pink: '#E284B6',
+    mainBlue: '#77C4EE',
+    backgroundBlue: '#E4F1FA',
+    semiWhite: '#FDFDFD',
   },
 };
