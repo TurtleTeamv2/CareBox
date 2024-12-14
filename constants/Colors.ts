@@ -24,4 +24,8 @@ export default {
     backgroundBlue: '#E4F1FA',
     semiWhite: '#FDFDFD',
   },
+  pink: '#E284B6',
+  mainBlue: '#77C4EE',
+  backgroundBlue: '#E4F1FA',
+  semiWhite: '#FDFDFD',
 };

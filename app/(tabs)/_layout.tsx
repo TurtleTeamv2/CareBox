@@ -24,7 +24,6 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        // tabBarShowLabel: false, 
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].pink,
         tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].mainBlue, 
         headerShown: useClientOnlyValue(false, true),
@@ -36,7 +35,7 @@ export default function TabLayout() {
           height: 60,
         },
         tabBarIconStyle: {
-          marginTop: 10, // Zapobiega przesunięciu ikon
+          marginTop: 10,
         },
       }}>
       <Tabs.Screen
