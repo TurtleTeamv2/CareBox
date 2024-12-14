@@ -18,7 +18,7 @@ export default function CalendarScreen() {
 
         <Image
           style={styles.image}
-          source={require('../../assets/images/png/indexHeader.png')}
+          source={require('../../assets/images/png/calendarHeader.png')}
          />
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
 
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   image:{
     position: 'absolute', 
-    left: 100,
+    left: 40,
     top: 30
   },
   separator: {

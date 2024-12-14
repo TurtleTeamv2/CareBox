@@ -20,7 +20,7 @@ const TakePillScreen = () => {
           <View style={styles.header}>
             <Image 
                style={styles.image}
-              source={require('../assets/images/png/indexHeader.png')}
+              source={require('../assets/images/png/infoHeader.png')}
             />
           </View>
           <View style={styles.bigPill}>
