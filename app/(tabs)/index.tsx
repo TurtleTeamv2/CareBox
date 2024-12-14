@@ -6,6 +6,7 @@ import Layout from '@/components/common/Layout';
 import MedKitBar from '@/components/medkit/MedKitBar';
 import SectionHeader from '@/components/medkit/SectionHeader';
 import FilterSvg from '@/components/medkit/FilterSvg';
+import { Link } from 'expo-router';
 
 
 const DATA = [
@@ -39,7 +40,7 @@ const DATA = [
         medName: 'Bisocard',
         amount: '10mg',
         expirationDate: '06.2025' ,
-        medType: 'syrup'
+        medType: 'pill'
       }
     ],
   },
@@ -53,7 +54,6 @@ export default function TabOneScreen() {
           <View style={styles.header}>
 
             <Image
-            // style={styles.tinyLogo}
               source={require('../../assets/images/png/indexHeader.png')}
             />
           </View>
@@ -61,7 +61,9 @@ export default function TabOneScreen() {
           sections={DATA}
           keyExtractor={(item, index) => item + index}
           renderItem={({item}) => (
+            <Link href="/TakePillScreen" asChild>
             <MedKitBar  {...item} />
+            </Link>
           )}
           renderSectionHeader={({section: {title}}) => (
             <SectionHeader sectionName={title} />
@@ -88,7 +90,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     right: 10,
-    
+
   },
   title: {
     fontSize: 20,

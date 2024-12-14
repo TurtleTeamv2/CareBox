@@ -2,23 +2,23 @@ import PillsSvg from "@/assets/images/svg/medKit/PillsSvg";
 import SyrupSvg from "@/assets/images/svg/medKit/SyrupSvg";
 import TimerSvg from "@/assets/images/svg/medKit/TimerSvg";
 import Colors from "@/constants/Colors";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, StyleSheet , Text} from 'react-native';
+import { View, StyleSheet , Text, Pressable, TouchableOpacity} from 'react-native';
 
 
 
 const MedKitBar = ({medName, amount ='', expirationDate, medType}) => {
+    const navigation = useNavigation();
 
     const handleIcon = () => {
         if (medType === 'syrup') return <SyrupSvg /> 
         return <PillsSvg />
     }
 
-    console.log(expirationDate)
-
     return ( 
 
-        <View style={styles.main}>
+        <TouchableOpacity style={styles.main} onPress={() => navigation.navigate('TakePillScreen', { medName, amount })}>
             <View style={styles.medNameWrapper}> 
                 <Text style={styles.medName}>{medName}</Text>
                 {amount && ( <Text style={styles.amount}>{amount || '-'}</Text> )}
@@ -30,7 +30,7 @@ const MedKitBar = ({medName, amount ='', expirationDate, medType}) => {
             <View style={styles.iconWrapper}>
                 {handleIcon()}
             </View>
-        </View>
+        </TouchableOpacity> 
     )
 
 }

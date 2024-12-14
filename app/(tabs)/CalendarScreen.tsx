@@ -1,24 +1,29 @@
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
-
+import React, { useState } from 'react'; 
+import CheckboxBar from '../../components/common/takePill/CheckboxBar' 
+import Layout from '@/components/common/Layout';
 export default function CalendarScreen() {
+
+  const optionsArr = [
+    'Terapia krotkotrwala',
+    'Terapia dlugotrwala',
+    'Przypominanie o\nkonczoncych sie lekach'
+  ]
+
+  const [selected, setSelected] = useState();
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Twoqweqeq</Text>
+    <Layout>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
-    </View>
+
+      {optionsArr.map((item =>  <CheckboxBar title={item} checked={selected === item} toggleCheckbox={()=> setSelected(item)} />) )}
+    </Layout> 
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
   title: {
     fontSize: 20,
     fontWeight: 'bold',
