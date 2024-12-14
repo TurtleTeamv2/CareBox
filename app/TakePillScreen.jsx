@@ -19,6 +19,7 @@ const TakePillScreen = () => {
             <View>
           <View style={styles.header}>
             <Image 
+               style={styles.image}
               source={require('../assets/images/png/indexHeader.png')}
             />
           </View>
@@ -26,8 +27,10 @@ const TakePillScreen = () => {
             <Text style={styles.pillText}>{`${medName} ${amount}`}</Text>
           </View>
           {hasDanger && (<InteractionCard />)}
+          <AnimatedDropdown title={'Dawkowanie'} />
           <AnimatedDropdown title={'Przeciwskazania'} />
-          </View>
+          <AnimatedDropdown title={'Środki ostrożności'} />
+          </View> 
         </Layout>
     )
 
@@ -38,6 +41,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  image:{
+    position: 'absolute', 
+    left: 80,
+    top: 20
   },
   header: {
     height: 100,
@@ -65,6 +73,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
     backgroundColor: Colors.mainBlue,
+    marginBottom: 30,
+    marginTop: 30
   },
   pillText: {
     color: '#fff',

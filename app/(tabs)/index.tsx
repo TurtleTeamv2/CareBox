@@ -54,6 +54,7 @@ export default function TabOneScreen() {
           <View style={styles.header}>
 
             <Image
+              style={styles.image}
               source={require('../../assets/images/png/indexHeader.png')}
             />
           </View>
@@ -81,6 +82,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image:{
+    position: 'absolute', 
+    left: 80,
+    top: 20
+  },
   header: {
     height: 100,
     alignItems: 'center',
@@ -88,7 +94,7 @@ const styles = StyleSheet.create({
   },
   filter: {
     position: 'absolute',
-    top: 10,
+    top: 40,
     right: 10,
 
   },
